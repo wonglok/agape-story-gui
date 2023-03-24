@@ -5,7 +5,6 @@ export function Landing() {
     <div className="w-full h-full">
       {/*  */}
       <OS></OS>
-      <OS></OS>
     </div>
   );
 }

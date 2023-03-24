@@ -1,10 +1,10 @@
 export function OSWindowFrame({ children }) {
   return (
     <div
-      className="absolute bottom-0  justify-center  bg-gray-100 shadow-2xl border-gray-300 border rounded-2xl shadow-gray-500 "
+      className="absolute bottom-0  justify-center  bg-gray-100 shadow-2xl border-gray-300 border rounded-2xl shadow-gray-500 font-light "
       style={{
-        width: "calc(100% - 65px * 2 - 32px)",
-        left: `calc(20px + 64px * 1 + 32px )`,
+        width: "calc(100% - 54px * 2 - 32px)",
+        left: `calc(20px + 54px * 1 + 32px )`,
         height: "calc(100% - 32px * 2)",
         top: "calc(32px)",
       }}
