@@ -42,10 +42,9 @@ export const useOS = create((set, get) => {
     });
   };
 
-  let add = ({ handle }) => {
+  let add = () => {
     wait(async (store) => {
       let item = createArtApp({ name: "app" });
-      item.handle = handle;
 
       await store.set(item.oid, item);
       read();
@@ -85,7 +84,7 @@ export const useOS = create((set, get) => {
 export const createArtApp = ({ name = "my-app" }) => {
   return {
     oid: getID(),
-    type: "art",
+    type: "painter",
     name,
     windows: [createWindowState({ title: "webgl-window" })],
   };

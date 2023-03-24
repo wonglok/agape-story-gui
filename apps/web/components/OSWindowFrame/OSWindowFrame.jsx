@@ -3,8 +3,8 @@ export function OSWindowFrame({ children }) {
     <div
       className="absolute bottom-0  justify-center  bg-gray-100 shadow-2xl border-gray-300 border rounded-2xl shadow-gray-500 font-light "
       style={{
-        width: "calc(100% - 54px * 2 - 32px)",
-        left: `calc(20px + 54px * 1 + 32px )`,
+        width: "calc(100% - 32px * 3 - 32px * 2 - 20px)",
+        left: `calc(20px + 32px * 2 + 32px + 32px )`,
         height: "calc(100% - 32px * 2)",
         top: "calc(32px)",
       }}
