@@ -4,7 +4,7 @@ import { Tooltip } from "antd";
 
 export function IconPainter({ onClick, tip = null }) {
   return (
-    <div className="inline-flex flex-col items-center text-xs mr-3 mb-3">
+    <div className="inline-flex flex-col items-center text-xs mr-3 mb-1">
       <Tooltip placement="right" title={tip}>
         <div
           onClick={onClick}
@@ -24,7 +24,7 @@ export function IconPainter({ onClick, tip = null }) {
           </button>
         </div>
       </Tooltip>
-      <span className={"mt-2 "}>{"Painter"}</span>
+      <span className={"mt-3 "}>{"Painter"}</span>
     </div>
   );
 }

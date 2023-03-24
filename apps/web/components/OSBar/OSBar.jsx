@@ -17,11 +17,11 @@ export function OSBar() {
   //
   return (
     <div
-      className="absolute bottom-0 bg-gray-200 shadow-2xl border-gray-300 border rounded-2xl shadow-gray-500 p-2"
+      className="absolute pt-2 bg-gray-200 shadow-2xl border-gray-300 border rounded-2xl shadow-gray-500 p-2"
       style={{
         width: "85px",
         left: `32px`,
-        height: "calc(100% - 32px * 2)",
+        // height: "calc(100% - 32px * 2)",
         top: "32px",
       }}
     >

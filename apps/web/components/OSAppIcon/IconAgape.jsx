@@ -4,7 +4,7 @@ export function IconAgape({ onClick = () => {} }) {
   return (
     <div
       onClick={onClick}
-      className="inline-flex flex-col items-center text-xs mr-3 mb-3"
+      className="inline-flex flex-col items-center text-xs mr-3 mb-2"
     >
       <div
         className={`bg-pink-100 shadow-pink-300 w-16 h-16  justify-center inline-flex shadow-lg  rounded-2xl`}
@@ -15,7 +15,7 @@ export function IconAgape({ onClick = () => {} }) {
           <img src={"/ui/ai-05png.png"} alt="logo"></img>
         </button>
       </div>
-      <span className={"mt-2 "}>{"Painter"}</span>
+      <span className={"mt-3"}>{"Home"}</span>
     </div>
   );
 }
