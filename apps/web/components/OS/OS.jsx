@@ -22,7 +22,7 @@ export function OS() {
           if (app.type === "painter") {
             return <AppArt title={app.name} key={app.oid} app={app}></AppArt>;
           } else {
-            return <AppArt title={app.name} key={app.oid} app={app}></AppArt>;
+            return <div title={app.name} key={app.oid} app={app}></div>;
           }
         })}
 

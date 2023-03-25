@@ -12,7 +12,7 @@ export function IconPainter({
 }) {
   let [isLoading, setLoading] = useState(false);
   return (
-    <div className="inline-flex flex-col items-center text-xs mr-3 mb-1">
+    <div className="inline-flex flex-col items-center text-xs">
       <Tooltip placement="right" title={tip}>
         <div
           onClick={() => {
@@ -42,12 +42,13 @@ export function IconPainter({
               className={`${isLoading ? " inline-block  animate-ping" : ""}`}
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
               >
-                <path d="M0 21.398c5.504.456 3.533-5.392 8.626-5.445l2.206 1.841c.549 6.645-7.579 8.127-10.832 3.604zm16.878-8.538c1.713-2.687 7.016-11.698 7.016-11.698.423-.747-.515-1.528-1.17-.976 0 0-7.887 6.857-10.213 9.03-1.838 1.719-1.846 2.504-2.441 5.336l2.016 1.681c2.67-1.098 3.439-1.248 4.792-3.373z" />
+                <path d="M8.071 21.586l-7.071 1.414 1.414-7.071 14.929-14.929 5.657 5.657-14.929 14.929zm-.493-.921l-4.243-4.243-1.06 5.303 5.303-1.06zm9.765-18.251l-13.3 13.301 4.242 4.242 13.301-13.3-4.243-4.243z" />
               </svg>
             </span>
           </button>
