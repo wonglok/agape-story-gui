@@ -35,6 +35,7 @@ export function IconApps({ active, onClick = () => {} }) {
           </svg>
         </button>
       </div>
+      <span className={"mt-2 text-center"}>{"Run Apps"}</span>
     </div>
   );
 }
