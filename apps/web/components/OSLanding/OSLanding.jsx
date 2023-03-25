@@ -1,7 +1,7 @@
 // import { useOS } from "../../store/useOS";
-import { Tooltip } from "antd";
-import { useOS } from "../../store/useOS";
-import { IconPainter } from "../OSAppIcon/IconPainter";
+// import { Tooltip } from "antd";
+// import { useOS } from "../../store/useOS";
+// import { IconPainter } from "../OSAppIcon/IconPainter";
 import { OSWindowFrame } from "../OSWindowFrame/OSWindowFrame";
 export function OSLanding() {
   return (
@@ -17,10 +17,14 @@ export function OSLanding() {
         <div className="mx-6 ">
           {/*  */}
           <div>
+            {/*  */}
+
             {/* <iframe
               className="w-full h-96 rounded-2xl"
               src={`https://garage.agape.land/`}
             ></iframe> */}
+
+            {/*  */}
           </div>
           {/*  */}
         </div>
