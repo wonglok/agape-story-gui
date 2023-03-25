@@ -19,12 +19,12 @@ export function OSBar() {
   //
   return (
     <div
-      className="absolute overflow-scroll bg-white shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
+      className="sticky overflow-scroll bg-white shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
       style={{
         width: "95px",
         left: `32px`,
         maxHeight: "calc(100% - 32px * 2)",
-        top: "32px",
+        top: "calc(32px + 68px)",
       }}
     >
       <div className="w-full h-full  flex items-center justify-center flex-col py-4 shadow-inner shadow-gray-500 rounded-2xl">

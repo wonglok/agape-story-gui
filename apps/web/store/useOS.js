@@ -29,9 +29,9 @@ export const useOS = create((set, get) => {
     });
   };
 
-  store.on("set", () => {
-    read();
-  });
+  // store.on("set", () => {
+  //   read();
+  // });
 
   let wait = (fnc) => {
     let tt = setInterval(() => {

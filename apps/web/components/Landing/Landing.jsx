@@ -31,11 +31,7 @@ export function Landing() {
       {/*  */}
 
       {/*  */}
-      <div className="w-full h-full">
-        <Canvas>
-          <group></group>
-        </Canvas>
-      </div>
+      <div className="w-full h-full"></div>
     </div>
   );
 }

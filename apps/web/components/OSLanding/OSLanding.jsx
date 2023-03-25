@@ -16,7 +16,12 @@ export function OSLanding() {
         <div style={{ height: `1px` }} className="bg-gray-500 mx-6 my-3"></div>
         <div className="mx-6 ">
           {/*  */}
-          <div></div>
+          <div>
+            {/* <iframe
+              className="w-full h-96 rounded-2xl"
+              src={`https://garage.agape.land/`}
+            ></iframe> */}
+          </div>
           {/*  */}
         </div>
       </OSWindowFrame>
