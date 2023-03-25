@@ -16,7 +16,7 @@ export function Landing() {
         </div>
         <div className=" mr-5">
           <span className="text-3xl font-extralight tracking-widest">
-            LOGIN / SIGNUP
+            BETA STAGE
           </span>
         </div>
       </div>
