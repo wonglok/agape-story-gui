@@ -8,6 +8,7 @@ export function IconPainter({
   onClick,
   triggerLoading = false,
   tip = null,
+  title = "Painter",
 }) {
   let [isLoading, setLoading] = useState(false);
   return (
@@ -52,7 +53,7 @@ export function IconPainter({
           </button>
         </div>
       </Tooltip>
-      <span className={"mt-2 "}>{"Painter"}</span>
+      <span className={"mt-2 "}>{title}</span>
     </div>
   );
 }
