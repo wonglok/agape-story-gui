@@ -12,7 +12,7 @@ export const useOS = create((set, get) => {
   let read = () => {
     store.json((err, json) => {
       if (err) throw err;
-      console.log("json", json);
+      // console.log("json", json);
       let array = [];
 
       for (let kn in json) {
@@ -89,7 +89,6 @@ export const createPainterApp = ({ name = "my-app" }) => {
     oid: getID(),
     type: "painter",
     name,
-    windows: [createWindowState({ title: "webgl-window" })],
   };
 };
 
@@ -98,17 +97,5 @@ export const createSolutionApp = ({ name = "my-app" }) => {
     oid: getID(),
     type: "solution",
     name,
-    windows: [createWindowState({ title: "solution-window" })],
-  };
-};
-
-export const createWindowState = ({ title = "my-window" }) => {
-  return {
-    oid: getID(),
-    x: 0,
-    y: 0,
-    width: 380,
-    height: 300,
-    title,
   };
 };
