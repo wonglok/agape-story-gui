@@ -42,11 +42,14 @@ export const useOS = create((set, get) => {
     });
   };
 
-  let add = () => {
+  let addArtApp = () => {
     wait(async (store) => {
-      let item = createArtApp({ name: "app" });
+      let item = createPainterApp({ name: "painter" });
 
       await store.set(item.oid, item);
+
+      set({ winTab: item.oid });
+
       read();
     });
   };
@@ -60,7 +63,7 @@ export const useOS = create((set, get) => {
   };
 
   return {
-    taskTab: "recent",
+    winTab: "home",
     apps: [],
     store,
     killApp,
@@ -77,11 +80,11 @@ export const useOS = create((set, get) => {
         store.off("open", hh);
       };
     },
-    add,
+    addArtApp,
   };
 });
 
-export const createArtApp = ({ name = "my-app" }) => {
+export const createPainterApp = ({ name = "my-app" }) => {
   return {
     oid: getID(),
     type: "painter",
