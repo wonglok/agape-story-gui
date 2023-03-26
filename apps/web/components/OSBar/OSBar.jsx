@@ -30,7 +30,7 @@ export function OSBar() {
     width: "calc(100% - 0px * 2)",
     top: "calc(0px)",
   };
-  let [style, setStyle] = useState(desktop);
+  let [style, setStyle] = useState(mobile);
 
   useEffect(() => {
     let hh = () => {

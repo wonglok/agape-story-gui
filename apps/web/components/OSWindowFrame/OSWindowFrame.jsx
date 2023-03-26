@@ -13,7 +13,7 @@ export function OSWindowFrame({ children }) {
     height: "calc(100% - 12px * 2 - 110px)",
     bottom: "calc(12px)",
   };
-  let [style, setStyle] = useState(desktop);
+  let [style, setStyle] = useState(mobile);
 
   useEffect(() => {
     let hh = () => {
