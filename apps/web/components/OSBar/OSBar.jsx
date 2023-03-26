@@ -23,12 +23,14 @@ export function OSBar() {
     left: `32px`,
     maxHeight: "calc(100% - 32px * 2)",
     top: "calc(32px)",
+    isMobie: false,
   };
   let mobile = {
     height: "110px",
     left: `0px`,
     width: "calc(100% - 0px * 2)",
     top: "calc(0px)",
+    isMobie: true,
   };
   let [style, setStyle] = useState(mobile);
 
@@ -51,12 +53,22 @@ export function OSBar() {
   //
   return (
     <div
-      className="absolute overflow-scroll   sm:shadow-2xl border-gray-300 sm:border sm:rounded-2xl sm:shadow-gray-600"
+      className={
+        style.isMobie
+          ? "absolute overflow-scroll  border-gray-300 "
+          : "absolute overflow-scroll   shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
+      }
       style={style}
     >
-      <div className="w-full h-full flex items-baseline sm:flex-col sm:items-center sm:justify-center py-4 sm:shadow-inner sm:shadow-gray-500 sm:rounded-2xl">
+      <div
+        className={
+          style.isMobie
+            ? "w-full h-full flex items-baseline py-4"
+            : "w-full h-full flex flex-col justify-start items-center py-4 shadow-inner shadow-gray-500 rounded-2xl"
+        }
+      >
         {/* ai */}
-        <div className="ml-3 mr-3 sm:mb-2 sm:mx-0">
+        <div className={style.isMobie ? "ml-3 mr-3" : "mb-2"}>
           <IconAgape
             active={winTab === "home"}
             onClick={() => {
@@ -64,7 +76,7 @@ export function OSBar() {
             }}
           ></IconAgape>
         </div>
-        <div className="mr-3 sm:mb-2 sm:mx-0">
+        <div className={style.isMobie ? "mr-3" : "mb-2"}>
           <IconFiles
             active={winTab === "files"}
             onClick={() => {
@@ -72,7 +84,7 @@ export function OSBar() {
             }}
           ></IconFiles>
         </div>
-        <div className="mr-3 sm:mb-2 sm:mx-0">
+        <div className={style.isMobie ? "mr-3" : "mb-2"}>
           <IconApps
             active={winTab === "apps"}
             onClick={() => {
@@ -83,7 +95,7 @@ export function OSBar() {
         {/* safe */}
         {apps.map((r, idx) => {
           return (
-            <div className="mr-3 sm:mb-2 sm:mx-0" key={r.oid}>
+            <div className={style.isMobie ? "mr-3" : "mb-2"} key={r.oid}>
               {r.type === "painter" && (
                 <IconPainter
                   title={r.title.slice(0, 15)}
