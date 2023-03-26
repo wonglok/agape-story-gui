@@ -10,8 +10,8 @@ export function OSWindowFrame({ children }) {
   let mobile = {
     width: "calc(100% - 12px * 2)",
     left: `calc(12px)`,
-    height: "calc(100% - 12px * 2  - 12px * 2 - 110px)",
-    top: "calc(12px)",
+    height: "calc(100% - 12px * 2 - 110px)",
+    bottom: "calc(12px)",
   };
   let [style, setStyle] = useState(desktop);
 

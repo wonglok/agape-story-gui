@@ -25,10 +25,10 @@ export function OSBar() {
     top: "calc(32px)",
   };
   let mobile = {
-    height: "120px",
+    height: "110px",
     left: `0px`,
     width: "calc(100% - 0px * 2)",
-    bottom: "calc(0px)",
+    top: "calc(0px)",
   };
   let [style, setStyle] = useState(desktop);
 
@@ -51,7 +51,7 @@ export function OSBar() {
   //
   return (
     <div
-      className="absolute overflow-scroll bg-white shadow-inner shadow-gray-400 sm:shadow-2xl border-gray-300 sm:border sm:rounded-2xl sm:shadow-gray-600"
+      className="absolute overflow-scroll   sm:shadow-2xl border-gray-300 sm:border sm:rounded-2xl sm:shadow-gray-600"
       style={style}
     >
       <div className="w-full h-full flex items-baseline sm:flex-col sm:items-center sm:justify-center py-4 sm:shadow-inner sm:shadow-gray-500 sm:rounded-2xl">
