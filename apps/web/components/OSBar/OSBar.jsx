@@ -17,26 +17,31 @@ export function OSBar() {
     return useOS.getState().hydrate();
   }, []);
 
-  let [style, setStyle] = useState({
+  let desktop = {
     width: "95px",
     left: `32px`,
     maxHeight: "calc(100% - 32px * 2)",
     top: "calc(32px)",
-  });
+  };
+  let mobile = {
+    height: "120px",
+    left: `12px`,
+    width: "calc(100% - 12px * 2)",
+    bottom: "calc(12px)",
+  };
+  let [style, setStyle] = useState(desktop);
 
   useEffect(() => {
     let hh = () => {
       if (window.innerWidth <= 500) {
-        setStyle({
-          height: "120px",
-          left: `12px`,
-          width: "calc(100% - 12px * 2)",
-          bottom: "calc(12px)",
-        });
+        setStyle(mobile);
+      } else {
+        setStyle(desktop);
       }
     };
     window.addEventListener("resize", hh);
     dispatchEvent(new Event("resize"));
+
     return () => {
       window.removeEventListener("resize", hh);
     };
@@ -48,10 +53,10 @@ export function OSBar() {
       className="absolute overflow-scroll bg-white shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
       style={style}
     >
-      <div className="w-full h-full flex items-baseline lg:items-center lg:justify-center py-4 shadow-inner shadow-gray-500 rounded-2xl">
+      <div className="w-full h-full flex items-baseline sm:flex-col sm:items-center sm:justify-center py-4 sm:shadow-inner sm:shadow-gray-500 rounded-2xl">
         {/* ai */}
 
-        <div className="ml-3 mr-3 lg:mb-2">
+        <div className="ml-3 mr-3 sm:mb-2 sm:mx-0">
           <IconAgape
             active={winTab === "home"}
             onClick={() => {
@@ -60,7 +65,7 @@ export function OSBar() {
           ></IconAgape>
         </div>
 
-        <div className="mr-3 lg:mb-2">
+        <div className="mr-3 sm:mb-2 sm:mx-0">
           <IconFiles
             active={winTab === "files"}
             onClick={() => {
@@ -69,7 +74,7 @@ export function OSBar() {
           ></IconFiles>
         </div>
 
-        <div className="mr-3 lg:mb-2">
+        <div className="mr-3 sm:mb-2 sm:mx-0">
           <IconApps
             active={winTab === "apps"}
             onClick={() => {
@@ -81,7 +86,7 @@ export function OSBar() {
         {/* safe */}
         {apps.map((r, idx) => {
           return (
-            <div className="mr-3 lg:mb-2" key={r.oid}>
+            <div className="mr-3 sm:mb-2 sm:mx-0" key={r.oid}>
               {r.type === "painter" && (
                 <IconPainter
                   title={r.title.slice(0, 15)}

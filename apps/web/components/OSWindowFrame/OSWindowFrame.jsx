@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
 
 export function OSWindowFrame({ children }) {
-  let [style, setStyle] = useState({
+  let desktop = {
     width: "calc(100% - 32px * 3 - 32px * 2 - 20px)",
     left: `calc(20px + 32px * 2 + 32px + 32px )`,
     height: "calc(100% - 32px * 2)",
     top: "calc(32px)",
-  });
+  };
+  let mobile = {
+    width: "calc(100% - 12px * 2)",
+    left: `calc(12px)`,
+    height: "calc(100% - 12px * 2  - 12px * 2 - 110px)",
+    top: "calc(12px)",
+  };
+  let [style, setStyle] = useState(desktop);
 
   useEffect(() => {
     let hh = () => {
       if (window.innerWidth <= 500) {
-        setStyle({
-          width: "calc(100% - 12px * 2)",
-          left: `calc(12px)`,
-          height: "calc(100% - 12px * 2  - 12px * 2)",
-          top: "calc(12px)",
-        });
+        setStyle(mobile);
+      } else {
+        setStyle(desktop);
       }
     };
     window.addEventListener("resize", hh);
