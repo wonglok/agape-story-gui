@@ -1,7 +1,7 @@
 //
 
 import { Tooltip } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function IconPainter({
   active,
@@ -10,10 +10,36 @@ export function IconPainter({
   tip = null,
   title = "ART Tools",
 }) {
+  let desktop = {
+    placement: "right",
+  };
+  let mobile = {
+    placement: "top",
+  };
+  let [config, setConfig] = useState(desktop);
+
+  useEffect(() => {
+    let hh = () => {
+      if (window.innerWidth <= 500) {
+        setConfig(mobile);
+      } else {
+        setConfig(desktop);
+      }
+    };
+    window.addEventListener("resize", hh);
+    dispatchEvent(new Event("resize"));
+
+    return () => {
+      window.removeEventListener("resize", hh);
+    };
+  }, []);
+  //
+
+  //
   let [isLoading, setLoading] = useState(false);
   return (
     <div className="inline-flex flex-col items-center text-xs">
-      <Tooltip placement="right" title={tip}>
+      <Tooltip {...config} title={tip}>
         <div
           onClick={() => {
             if (triggerLoading) {

@@ -1,10 +1,11 @@
 import { use, useEffect, useState } from "react";
 import { useOS } from "../../store/useOS";
-import EmojiPicker from "emoji-picker-react";
 import { IconPainter } from "../OSAppIcon/IconPainter";
 import { IconAgape } from "../OSAppIcon/IconAgape";
 import { IconApps } from "../OSAppIcon/IconApps";
 import { IconFiles } from "../OSAppIcon/IconFiles";
+
+// import EmojiPicker from "emoji-picker-react";
 
 /* eslint-disable @next/next/no-img-element */
 export function OSBar() {
@@ -25,9 +26,9 @@ export function OSBar() {
   };
   let mobile = {
     height: "120px",
-    left: `12px`,
-    width: "calc(100% - 12px * 2)",
-    bottom: "calc(12px)",
+    left: `0px`,
+    width: "calc(100% - 0px * 2)",
+    bottom: "calc(0px)",
   };
   let [style, setStyle] = useState(desktop);
 
@@ -50,12 +51,11 @@ export function OSBar() {
   //
   return (
     <div
-      className="absolute overflow-scroll bg-white shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
+      className="absolute overflow-scroll bg-white shadow-inner shadow-gray-400 sm:shadow-2xl border-gray-300 sm:border sm:rounded-2xl sm:shadow-gray-600"
       style={style}
     >
-      <div className="w-full h-full flex items-baseline sm:flex-col sm:items-center sm:justify-center py-4 sm:shadow-inner sm:shadow-gray-500 rounded-2xl">
+      <div className="w-full h-full flex items-baseline sm:flex-col sm:items-center sm:justify-center py-4 sm:shadow-inner sm:shadow-gray-500 sm:rounded-2xl">
         {/* ai */}
-
         <div className="ml-3 mr-3 sm:mb-2 sm:mx-0">
           <IconAgape
             active={winTab === "home"}
@@ -64,7 +64,6 @@ export function OSBar() {
             }}
           ></IconAgape>
         </div>
-
         <div className="mr-3 sm:mb-2 sm:mx-0">
           <IconFiles
             active={winTab === "files"}
@@ -73,7 +72,6 @@ export function OSBar() {
             }}
           ></IconFiles>
         </div>
-
         <div className="mr-3 sm:mb-2 sm:mx-0">
           <IconApps
             active={winTab === "apps"}
@@ -82,7 +80,6 @@ export function OSBar() {
             }}
           ></IconApps>
         </div>
-
         {/* safe */}
         {apps.map((r, idx) => {
           return (
@@ -110,31 +107,10 @@ export function OSBar() {
                 ></IconPainter>
               )}
             </div>
-            // <div
-            //   key={r.oid}
-            //   className="w-full justify-center flex mb-3 shadow-lg shadow-green-200 rounded-2xl"
-            // >
-            //   <button
-            //     onClick={() => {
-            //       useOS.getState().killApp(r);
-            //     }}
-            //     className="w-16 h-16 text-xs text-center select-none p-2 bg-green-200 rounded-2xl shadow-inner shadow-green-500 flex flex-col justify-center items-center"
-            //   >
-            //     {r.type}
-            //   </button>
-            // </div>
           );
         })}
-
-        {/*  */}
-        {/*
-      <div className="w-full justify-center flex mb-3 shadow-lg shadow-green-200 rounded-2xl">
-        <button className="w-16 h-16 text-lg font-bold font-mono text-center select-none p-2 bg-green-200 rounded-2xl shadow-inner shadow-green-500 flex flex-col justify-center items-center">
-          1
-        </button>
       </div>
-      */}
-      </div>
+      {/*  */}
     </div>
   );
 }
