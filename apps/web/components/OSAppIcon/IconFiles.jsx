@@ -1,6 +1,6 @@
 //
 
-export function IconApps({ active, onClick = () => {} }) {
+export function IconFiles({ active, onClick = () => {} }) {
   return (
     <div
       onClick={onClick}
@@ -9,14 +9,14 @@ export function IconApps({ active, onClick = () => {} }) {
       <div
         className={`${
           active
-            ? `bg-blue-100 shadow-blue-300 `
+            ? `bg-purple-100 shadow-purple-300 `
             : `bg-gray-100 shadow-gray-300 `
         } w-16 h-16  justify-center inline-flex shadow-lg  rounded-2xl`}
       >
         <button
           className={`${
             active
-              ? `bg-blue-100 shadow-blue-300 `
+              ? `bg-purple-100 shadow-purple-300 `
               : `bg-gray-100 shadow-gray-300 `
           } w-16 h-16  text-center select-none p-2  rounded-2xl shadow-inner flex flex-col justify-center items-center`}
         >
@@ -31,7 +31,7 @@ export function IconApps({ active, onClick = () => {} }) {
           </svg>
         </button>
       </div>
-      <span className={"mt-2 text-center"}>{"Run Apps"}</span>
+      <span className={"mt-2 text-center"}>{"Files"}</span>
     </div>
   );
 }

@@ -1,9 +1,10 @@
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import { useOS } from "../../store/useOS";
 import EmojiPicker from "emoji-picker-react";
 import { IconPainter } from "../OSAppIcon/IconPainter";
 import { IconAgape } from "../OSAppIcon/IconAgape";
 import { IconApps } from "../OSAppIcon/IconApps";
+import { IconFiles } from "../OSAppIcon/IconFiles";
 
 /* eslint-disable @next/next/no-img-element */
 export function OSBar() {
@@ -16,21 +17,41 @@ export function OSBar() {
     return useOS.getState().hydrate();
   }, []);
 
+  let [style, setStyle] = useState({
+    width: "95px",
+    left: `32px`,
+    maxHeight: "calc(100% - 32px * 2)",
+    top: "calc(32px)",
+  });
+
+  useEffect(() => {
+    let hh = () => {
+      if (window.innerWidth <= 500) {
+        setStyle({
+          height: "120px",
+          left: `12px`,
+          width: "calc(100% - 12px * 2)",
+          bottom: "calc(12px)",
+        });
+      }
+    };
+    window.addEventListener("resize", hh);
+    dispatchEvent(new Event("resize"));
+    return () => {
+      window.removeEventListener("resize", hh);
+    };
+  }, []);
+
   //
   return (
     <div
       className="absolute overflow-scroll bg-white shadow-2xl border-gray-300 border rounded-2xl shadow-gray-600"
-      style={{
-        width: "95px",
-        left: `32px`,
-        maxHeight: "calc(100% - 32px * 2)",
-        top: "calc(32px)",
-      }}
+      style={style}
     >
-      <div className="w-full h-full  flex items-center justify-center flex-col py-4 shadow-inner shadow-gray-500 rounded-2xl">
+      <div className="w-full h-full flex items-baseline lg:items-center lg:justify-center py-4 shadow-inner shadow-gray-500 rounded-2xl">
         {/* ai */}
 
-        <div className="mb-2">
+        <div className="ml-3 mr-3 lg:mb-2">
           <IconAgape
             active={winTab === "home"}
             onClick={() => {
@@ -39,8 +60,16 @@ export function OSBar() {
           ></IconAgape>
         </div>
 
-        {/* ai */}
-        <div className="mb-2">
+        <div className="mr-3 lg:mb-2">
+          <IconFiles
+            active={winTab === "files"}
+            onClick={() => {
+              useOS.setState({ winTab: "files" });
+            }}
+          ></IconFiles>
+        </div>
+
+        <div className="mr-3 lg:mb-2">
           <IconApps
             active={winTab === "apps"}
             onClick={() => {
@@ -52,7 +81,7 @@ export function OSBar() {
         {/* safe */}
         {apps.map((r, idx) => {
           return (
-            <div className="mb-2" key={r.oid}>
+            <div className="mr-3 lg:mb-2" key={r.oid}>
               {r.type === "painter" && (
                 <IconPainter
                   title={r.title.slice(0, 15)}
