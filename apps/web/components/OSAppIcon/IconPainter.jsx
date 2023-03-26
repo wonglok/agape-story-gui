@@ -8,7 +8,7 @@ export function IconPainter({
   onClick,
   triggerLoading = false,
   tip = null,
-  title = "Painter",
+  title = "ART Tools",
 }) {
   let [isLoading, setLoading] = useState(false);
   return (

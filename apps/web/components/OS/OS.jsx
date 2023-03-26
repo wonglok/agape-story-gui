@@ -20,9 +20,9 @@ export function OS() {
         })
         .map((app) => {
           if (app.type === "painter") {
-            return <AppArt title={app.name} key={app.oid} app={app}></AppArt>;
+            return <AppArt title={app.title} key={app.oid} app={app}></AppArt>;
           } else {
-            return <div title={app.name} key={app.oid} app={app}></div>;
+            return <div title={app.title} key={app.oid} app={app}></div>;
           }
         })}
 

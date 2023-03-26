@@ -55,6 +55,7 @@ export function OSBar() {
             <div className="mb-2" key={r.oid}>
               {r.type === "painter" && (
                 <IconPainter
+                  title={r.title.slice(0, 15)}
                   active={winTab === r.oid}
                   tip={() => {
                     return (

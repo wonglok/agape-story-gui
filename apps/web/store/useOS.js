@@ -1,9 +1,8 @@
 import { create } from "zustand";
 import { IdbKvStore } from "./idbstore";
-import { v4 } from "uuid";
-import md5 from "md5";
+import { atom } from "jotai";
 
-export const getID = () => `_${md5(v4().toString())}`;
+export const getID = () => "_" + Math.random().toString(36).slice(2, 9);
 
 //
 export const useOS = create((set, get) => {
@@ -25,7 +24,7 @@ export const useOS = create((set, get) => {
 
       set({ apps: array });
 
-      console.log(array);
+      // console.log(array);
     });
   };
 
@@ -44,7 +43,7 @@ export const useOS = create((set, get) => {
 
   let addArtApp = () => {
     wait(async (store) => {
-      let item = createPainterApp({ name: "painter" });
+      let item = createPainterAppInstance({ name: "painter" });
 
       await store.set(item.oid, item);
 
@@ -62,40 +61,44 @@ export const useOS = create((set, get) => {
     });
   };
 
+  let saveApp = (app) => {
+    wait(async (store) => {
+      let item = app;
+      await store.set(item.oid, item);
+      read();
+    });
+  };
+
+  let hydrate = () => {
+    let hh = () => {
+      read();
+    };
+    store.on("open", hh);
+
+    if (store._db) {
+      store.emit("open");
+    }
+    return () => {
+      store.off("open", hh);
+    };
+  };
+
   return {
     winTab: "home",
     apps: [],
     store,
     killApp,
-    hydrate: () => {
-      let hh = () => {
-        read();
-      };
-      store.on("open", hh);
-
-      if (store._db) {
-        store.emit("open");
-      }
-      return () => {
-        store.off("open", hh);
-      };
-    },
+    saveApp,
+    hydrate,
     addArtApp,
   };
 });
 
-export const createPainterApp = ({ name = "my-app" }) => {
+export const createPainterAppInstance = ({ name = "my-app" }) => {
   return {
     oid: getID(),
     type: "painter",
-    name,
-  };
-};
-
-export const createSolutionApp = ({ name = "my-app" }) => {
-  return {
-    oid: getID(),
-    type: "solution",
-    name,
+    title: name,
+    tab: "menu",
   };
 };
