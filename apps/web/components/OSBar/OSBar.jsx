@@ -25,6 +25,7 @@ export function OSBar() {
     top: "calc(32px)",
     isMobie: false,
   };
+
   let mobile = {
     height: "110px",
     left: `0px`,
